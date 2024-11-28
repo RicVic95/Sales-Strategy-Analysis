@@ -107,8 +107,8 @@ The barplot below shows the top 10 States by their sales revenue (left axis) and
 ## Key findings from Exploratory Data Analysis
 
 Overall Spread: 
-- 'Email + call' generates the highest average revenue per transaction but has the lowest transaction volume.
-- 'Email' generates the highest total revenue and transactions. Suggesting it might be the most scalable. 
+- **Email + call** generates the highest average revenue per transaction but has the lowest transaction volume.
+- **Email** generates the highest total revenue and transactions. Suggesting it might be the most scalable. 
 
 Revenue Over Time: 
 - Average revenue per transaction increases over time for all methods, while transaction volume declines for 'email' and 'call'. 
@@ -173,7 +173,7 @@ To further explore which specific pairs of sales methods were significantly diff
 | sales_method      | call    | email + call| False  | True       | -232.81       | 2812.37         | two-sided   | 0.0     | 0.0    | bonf     | inf   | -7.366      |
 | sales_method      | email   | email + call| False  | True       | -149.05       | 2822.69         | two-sided   | 0.0     | 0.0    | bonf     | inf   | -4.969      |
 
-Conclusion:
+#### Conclusion
 
 The pairwise comparisons between the sales methods (call, email, and email + call) reveal statistically significant differences in revenue across all pairs. The T-statistics are negative, indicating that for each comparison, the first sales method (A) generally has lower revenue than the second (B). The p-values for all comparisons are 0.0, confirming these differences are highly significant. The effect sizes, as measured by Hedges' g, range from -4.969 to -7.366, suggesting large and meaningful differences between the sales methods.
 
@@ -220,7 +220,7 @@ From this table, we can observe the following results:
 
 - **Call** is the **least efficient** in terms of both total revenue and average revenue per transaction, making it the least favorable method for maximizing revenue.
 
-## **Conclusion**
+### **Conclusion**
 If the goal is to **maximize total revenue**, **email** is the best method due to its **higher transaction volume**. However, if **higher revenue per transaction** is prioritized, **email + call** may be the better choice, though it sacrifices scalability. For businesses seeking scalability and higher total revenue, **email** is recommended.
 
 # Final thoughts, recommendations and metrics to follow
