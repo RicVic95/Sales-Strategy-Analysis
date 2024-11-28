@@ -1,5 +1,8 @@
 # Sales Strategy Analysis
 
+# Executive Summary 
+This project analyzed six weeks of sales data to evaluate the performance of three sales methods—Call, Email, and Email + Call—with the goal of identifying the most effective strategy for maximizing revenue while balancing scalability and efficiency. The analysis involved data cleaning, exploratory analysis, and statistical testing, revealing significant differences in performance. Email was identified as the most scalable method, generating the highest total revenue and transaction volume, while Email + Call was the most efficient per transaction but limited in scalability due to resource demands. Call was found to be the least efficient and least profitable method. Based on these findings, the recommendations include prioritizing Email for its scalability, optimizing Email + Call for high-value customers, and phasing out Call due to its inefficiency. Monitoring weekly revenue by sales method is suggested to ensure continued performance alignment with business objectives.
+
 # Data Validation
 
 The dataset contains 15,000 rows and 8 columns before cleaning and validation. I have validated all the columns against the criteria in the dataset table: 
