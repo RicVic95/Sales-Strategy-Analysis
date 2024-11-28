@@ -1,3 +1,5 @@
+# Sales Strategy Analysis
+
 # Data Validation
 
 The dataset contains 15,000 rows and 8 columns before cleaning and validation. I have validated all the columns against the criteria in the dataset table: 
