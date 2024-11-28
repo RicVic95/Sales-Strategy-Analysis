@@ -7,18 +7,16 @@ This project analyzed six weeks of sales data to evaluate the performance of thr
 
 The dataset contains 15,000 rows and 8 columns before cleaning and validation. I have validated all the columns against the criteria in the dataset table: 
 
-- `week`: 6 weeks total (in line with the description). No cleaning is required. 
-- `sales_method`: Homogenized string cases and standardized categories to ensure that only 'call', 'email' and 'email + call' exist.
-- `Customer_ID`: Confirmed all the values are unique for individual transactions. No duplicates detected. 
-- `nb_sold`: Number of items sold per transaction. Range from 7-16. No missing or invalid values detected. 
-- `Revenue`: A few alterations were made to this column: 
-    - Removed a total of 99 outliers based on IQR method.
-    - After dividing the missing values by their respective sales method, It is possible to detect that the 'call', 'email' and 'email + call' had 3.7%, 7.4% and 13.6% of ther values missing, respectively. For a grand total of 1074 missing values. 
-        - Since the percentage of missing values for 'email' and 'call' methods was below 8%, missing data was removed from the dataset. 
-        - For the 'email + call' method, the percentage is above the threshold. Missing values for this method were imputed by using the average revenue for each of the number of items sold. Allowing us to keep all of the values for this sales method. 
-- `Years_as_customer`: Identified and removed 2 customers with 'years_as_customer' > 40, as these exceeded the company's existence (data error). 
-- `nb_site_visits`: Verified numerical values with no missing or anomalous data. 
-- `State`: 50 total unique values. No cleaning required.
+| **Column Name**       | **Description**                                                                 | **Changes Performed**                                                                                                              |
+|------------------------|---------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| `week`                | Week of the sale, counted as weeks since product launch.                         | No changes required; data was already valid and within the expected range (1–6).                                                 |
+| `sales_method`        | Sales method used for the customer (Call, Email, Email + Call).                  | Homogenized string cases, standardized categories to include only `call`, `email`, and `email + call`.                           |
+| `customer_id`         | Unique identifier for the customer.                                              | Verified uniqueness; no duplicates detected.                                                                                     |
+| `nb_sold`             | Number of products sold per transaction (7–16).                                  | No changes required; data was valid.                      |
+| `revenue`             | Total revenue from the sale, rounded to 2 decimal places.                        | - Removed 99 outliers based on IQR method.<br> - Handled missing values:<br>   - Dropped for `call` (3.7%) and `email` (7.4%).<br>   - Imputed for `email + call` (13.6%) using average revenue grouped by `nb_sold`. |
+| `years_as_customer`   | Number of years the customer has been buying from the company (founded in 1984). | Removed 2 customers with `years_as_customer` > 40 due to data errors exceeding the company's existence.                          |
+| `nb_site_visits`      | Number of times the customer visited the website in the last 6 months.           | No changes required; data was valid and within expected ranges.                                                                  |
+| `state`               | Customer's shipping location (e.g., California, Texas).                         | No changes required; verified 50 unique values, matching the 50 U.S. states.                                                     |
 
 After data validation, the dataset contains 14,174 rows and 9 columns. 
 
