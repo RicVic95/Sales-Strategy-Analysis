@@ -1,0 +1,13 @@
+tenure_group,sales_method,average_revenue
+0-2 (New),call,48.25
+0-2 (New),email,97.23
+0-2 (New),email + call,187.0
+3-10 (Growing),call,47.15
+3-10 (Growing),email,96.44
+3-10 (Growing),email + call,183.19
+11-20 (Established),call,46.31
+11-20 (Established),email,95.08
+11-20 (Established),email + call,178.71
+21-39 (Loyal),call,45.82
+21-39 (Loyal),email,94.91
+21-39 (Loyal),email + call,176.6
