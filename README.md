@@ -28,7 +28,7 @@ The heatmap below visualises the correlation between key variables (revenue, nb_
 - There is a stronger positive correlation ( _r = 0.81_ ), however, between the number of items sold (nb_sold), and the week, sugesting potential time-based trends. 
 - There is mild correlation between the number of items sold and the number of website visits. 
 
-<div align='center'> 
+<div style="display: flex; justify-content: center; align-items: center; width: 100%; margin: auto;">
     <img src= 'Sales_Strategy/reports/figures/correlation_heatmap.png' alt='Correlation', width=500> 
 </div>    
 
