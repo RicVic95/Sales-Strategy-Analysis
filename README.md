@@ -64,9 +64,9 @@ On the other hand, the right-side plot shows the number of transactions by sales
  
 We'll focus on revenue as our metric for comparison. We segmented customers based on their tenure into four different categories: New (0-2 years), Growing (3-10 years), Established (11-20 years) and Loyal (21-39 years). The bar plot below shows the number of customers belonging to each of the categories. 
 
-<p align='center'> 
-    <img src= 'Sales_Strategy/reports/figures/n_customers_per_group.png', width=600> 
-</p>    
+<div align='center'> 
+    <img src= 'Sales_Strategy/reports/figures/n_customers_per_group.png' width=600> 
+</div>    
 
 It is evident that the most common customer group is 'Growing' and 'New'. In terms of average revenue generated from each of the groups, it is possible to see a negative correlation (albeit negligible) between average revenue and tenure. That is, the bigger the tenure, the lower the average revenue. Differences are minor, however, and further analysis would need to be made to determine if there is a statistically significant difference. 
 
@@ -74,6 +74,7 @@ It is evident that the most common customer group is 'Growing' and 'New'. In ter
 
 The table below shows the average revenue for each of the sales methods, divided by their customer groups: 
 
+<div align='center'> 
 | tenure_group       | sales_method   | average_revenue |
 |--------------------|----------------|-----------------|
 | 0-2 (New)         | call           | 48.254291       |
@@ -88,6 +89,7 @@ The table below shows the average revenue for each of the sales methods, divided
 | 21-39 (Loyal)     | call           | 45.824048       |
 |                   | email          | 94.909375       |
 |                   | email + call   | 176.595322      |
+</div>
 
 These findings are in line with what we mentioned before. Differences across average revenue are very minor and, in fact, highest average revenue can be seen by the two most common customer groups. 
 
@@ -95,9 +97,9 @@ These findings are in line with what we mentioned before. Differences across ave
 
 The barplot below shows the top 10 States by their sales revenue (left axis) and their sales count (right axis) . California, Texas and New York represent the top 3, together represent almost 27% of the total revenue of the business. 
 
-<p align='center'> 
-    <img src= 'Sales_Strategy/reports/figures/top_10_states_by_revenue_and_sales.png', width=600> 
-</p>   
+<div align='center'> 
+    <img src= 'Sales_Strategy/reports/figures/top_10_states_by_revenue_and_sales.png' width=600> 
+</div>   
 
 ## Key findings from Exploratory Data Analysis
 
@@ -122,11 +124,13 @@ The purpose of this section is to investigate if there is a statistically signif
 
 First, we need to understand if our data is normally distributed. The table below was calculated by performing Shapiro-Wilk tests for normality for each of the sales methods' 'revenue' column. 
 
+<div align='center'> 
 | sales_method   | p_value         | statistic | result                    |
 |----------------|-----------------|-----------|---------------------------|
 | call           | 1.342326e-39    | 0.942515  | Not Normally Distributed  |
 | email          | 1.077739e-40    | 0.957479  | Not Normally Distributed  |
 | email + call   | 2.332966e-35    | 0.917418  | Not Normally Distributed  |
+</div>
 
 We can then confirm this results by performing Q-Q plots for each of the sales methods as an additional test for normality: 
 
@@ -148,9 +152,11 @@ We will use Kruskal-Wallis tests to compare the sales methods across the groups 
 
 #### Kruskal-Wallis Test Results
 
+<div align='center'> 
 | **Source**      | **ddof1** | **H**           | **p-unc** |
 |-----------------|-----------|-----------------|-----------|
 | sales_method    | 2         | 11957.12        | 0.0       |
+</div>
 
 The Kruskal-Wallis test yielded an H-statistic of 11957.12, which indicates significant differences between the sales methods, and a p-value of 0.0, which is less than the 0.05 threshold, allowing us to reject the null hypothesis. Therefore, we conclude that there is a significant difference in the distributions of revenue across the sales methods (call, email, email + call). 
 
@@ -182,11 +188,13 @@ Since the test above have shown that there are statistically significant differe
 
 The table below shows the average revenue generated per transaction for each of the sales methods: 
 
+<div align='center'> 
 | sales_method   | total_revenue | total_transactions | avg_revenue | avg_nb_sold |
 |----------------|---------------|--------------------|-------------|-------------|
 | call           | 226668.99     | 4768               | 47.54       | 9.49        |
 | email          | 660475.80     | 6834               | 96.65       | 9.68        |
 | email + call   | 473828.41     | 2572               | 184.23      | 12.23       |
+</div>
 
 From this table, we can observe the following results: 
 
@@ -229,11 +237,13 @@ To evaluate the performance of sales strategies effectively, the business should
 ### Initial Metric Values (Based on Current Data):
 The table below summarizes average weekly revenue per sales method over the 6-week period:
 
+<div align='center'> 
 | **Sales Method** | **Average Weekly Revenue ($)** |
 |-------------------|-------------------------------|
 | Call             | 37,778.16                     |
 | Email            | 110,079.30                    |
 | Email + Call     | 78,971.40                     |
+</div>
 
 These initial values can serve as benchmarks for monitoring weekly performance.
 
