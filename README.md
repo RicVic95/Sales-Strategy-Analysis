@@ -1,7 +1,78 @@
-# Sales Strategy Analysis
+# Hypothesis-Driven Sales Strategy Optimization
+---
+# Executive Summary
 
-# Executive Summary 
-This project analyzed six weeks of sales data to evaluate the performance of three sales methods—Call, Email, and Email + Call—with the goal of identifying the most effective strategy for maximizing revenue while balancing scalability and efficiency. The analysis involved data cleaning, exploratory analysis, and statistical testing, revealing significant differences in performance. Email was identified as the most scalable method, generating the highest total revenue and transaction volume, while Email + Call was the most efficient per transaction but limited in scalability due to resource demands. Call was found to be the least efficient and least profitable method. Based on these findings, the recommendations include prioritizing Email for its scalability, optimizing Email + Call for high-value customers, and phasing out Call due to its inefficiency. Monitoring weekly revenue by sales method is suggested to ensure continued performance alignment with business objectives.
+## Objective
+The goal of this project was to evaluate and compare sales methods (Call, Email, and Email + Call) to identify the most effective strategies for maximizing revenue and profitability. By analyzing transactional data, the project aimed to recommend optimal sales approaches for scalable revenue growth and efficient resource allocation.
+
+## Approach
+The analysis followed a structured process, including data validation, exploratory data analysis (EDA), statistical testing, and efficiency evaluation. Key steps included:
+
+- **Data Cleaning**: Addressing missing values, removing outliers, and ensuring dataset integrity.
+- **Exploratory Analysis**: Identifying trends in sales performance over time, differences across customer groups, and revenue drivers by state.
+- **Statistical Testing**: Using non-parametric tests (Kruskal-Wallis and pairwise comparisons) to determine significant differences in revenue distributions across sales methods.
+- **Efficiency Metrics**: Estimating costs per transaction and profit margins to compare the scalability and efficiency of each method.
+
+Key considerations included:
+- Identifying the most scalable sales method for maximizing total revenue.
+- Evaluating transaction efficiency by analyzing average revenue and profit margins.
+- Highlighting opportunities for optimizing high-revenue but resource-intensive methods.
+- Recommending data-driven strategies for sustained growth.
+
+## Results
+The analysis revealed significant differences between the three sales methods, with key findings summarized below:
+
+- **Email**: The most scalable method, generating the highest total revenue ($660,475.80) and transactions (6,834). It had the lowest cost per transaction ($2.00) and a profit margin of 36%, making it the most cost-effective strategy for maximizing overall revenue.
+- **Email + Call**: The most efficient per transaction, with the highest average revenue per sale ($184.23) and a 42% profit margin. However, its lower transaction volume (2,572) limits scalability.
+- **Call**: The least favorable method, with the lowest total revenue ($226,668.99), average revenue per transaction ($47.54), and profit margin (18%).
+
+Statistical tests confirmed that revenue distributions differed significantly across methods, emphasizing the importance of strategic prioritization. Additionally, states like California, Texas, and New York emerged as key revenue drivers, collectively accounting for **over one quarter of total revenue**.
+
+### Recommendations
+1. **Scale the Email Method**:
+   - Focus on scaling email campaigns further to leverage its scalability and cost-effectiveness.
+   - Sustain performance through strategies like A/B testing, customer segmentation, and retention campaigns to address declining transaction volumes over time.
+
+2. **Optimize Email + Call for High-Value Opportunities**:
+   - Use this method strategically for premium customers or high-value products, where maximizing revenue per transaction is critical.
+   - Streamline operations to reduce resource demands and increase transaction volume.
+
+3. **Reduce the Call Method to Specific Situations**:
+   - Limit the use of the call method to scenarios where email or email + call campaigns are not viable, such as targeting specific customer demographics or regions with limited accessibility.
+   - Focus on optimizing call campaigns for efficiency and profitability when deployed.
+
+4. **Monitor Revenue Metrics**:
+   - Track weekly revenue and transaction volumes for each sales method to identify performance trends.
+   - Establish performance thresholds to ensure resource allocation aligns with business goals.
+
+5. **Target Key States**:
+   - Focus sales and marketing efforts on California, Texas, and New York to capitalize on their high revenue contributions.
+
+6. **Explore Additional Sales Channels**:
+   - Investigate emerging sales channels such as SMS marketing, social media outreach, or live chat support.
+   - Evaluate their impacts on revenue to uncover new opportunities for growth and diversification.
+   - Adopt an omnichannel approach by integrating multiple methods to maximize scalability and customer engagement, ensuring a balanced and comprehensive strategy.
+
+## Key Impact
+Implementing these recommendations has the potential to significantly enhance revenue and profitability while improving resource efficiency. Specifically:
+
+- Scaling the Email method could sustain high transaction volumes and total revenue growth.
+- Strategically deploying Email + Call could maximize returns from high-value customers.
+- Reducing reliance on the Call method would free up resources for more efficient strategies.
+- Targeting top-performing states could amplify overall revenue by focusing efforts where they yield the highest returns.
+- Exploring additional sales channels and adopting an omnichannel approach will allow the business to stay agile, capture new opportunities, and maintain competitive advantage in evolving markets.
+
+By adopting a data-driven approach to sales strategy, the business can align its operational efforts with its strategic goal of maximizing revenue growth and resource optimization.
+
+--- 
+
+# Introduction
+
+Sales methods play a critical role in driving business growth and maximizing revenue. With evolving customer behaviors and emerging communication channels, it has become essential for businesses to evaluate the effectiveness of their sales strategies to ensure optimal resource allocation and sustained profitability.
+
+This project aims to analyze and compare the performance of three primary sales methods—Call, Email, and Email + Call—using a structured data-driven approach. By understanding how these methods impact key metrics like revenue, transaction volume, and efficiency, the project provides actionable recommendations to refine the company’s sales strategy and adapt to changing market dynamics.
+
+The findings presented in this report are intended to guide decision-making, identify areas of opportunity, and ensure the business remains competitive in an increasingly customer-centric landscape.
 
 # Data Validation
 
@@ -18,30 +89,30 @@ The dataset contains 15,000 rows and 8 columns before cleaning and validation. I
 | `nb_site_visits`      | Number of times the customer visited the website in the last 6 months.           | No changes required; data was valid and within expected ranges.                                                                  |
 | `state`               | Customer's shipping location (e.g., California, Texas).                         | No changes required; verified 50 unique values, matching the 50 U.S. states.                                                     |
 
-After data validation, the dataset contains 14,174 rows and 9 columns. 
+After data validation, the dataset contains 14,174 rows and 9 columns. The data cleaning process addressed key issues to ensure the reliability of the analysis. Notably, outliers were removed from the revenue column to minimize the risk of skewed results, and missing values in the email + call category were imputed to preserve data integrity for this high-value sales method. These steps were critical in preparing the dataset for meaningful comparisons and ensuring robust insights across the different sales methods.
 
 # Exploratory Data Analysis
 ## What is the relationship between numerical variables? 
 
+To explore relationships between key variables, a correlation heatmap was generated. Understanding these relationships is critical for identifying factors that drive revenue and sales volume. For instance, examining the strength of correlations can help determine whether increasing website visits might lead to higher sales or whether time-based trends suggest opportunities for optimizing marketing campaign timing.
+
 The heatmap below visualises the correlation between key variables (revenue, nb_sold, week, etc): 
 
-- We can see that there is a moderate positive correlation ( _r = 0.72_ ) between revenue and the number of items sold, this is in line with the fact that the products sold were different. 
-- There is a stronger positive correlation ( _r = 0.81_ ), however, between the number of items sold (nb_sold), and the week, sugesting potential time-based trends. 
-- There is mild correlation between the number of items sold and the number of website visits. 
+The positive correlation (r = 0.72) between revenue and nb_sold aligns with expectations, as higher sales volumes typically lead to greater revenue. The stronger correlation (r = 0.81) between nb_sold and week suggests a potential time-based trend, possibly driven by seasonal effects or the impact of marketing campaigns over time. This indicates that sales volume may be influenced by temporal factors, which could be leveraged to optimize future campaigns. Additionally, the mild correlation between nb_sold and nb_site_visits suggests that website engagement plays a role, albeit not a dominant one, in driving sales volume.
 
 <div align='center'> 
     <img src= 'Sales_Strategy/reports/figures/correlation_heatmap.png' alt='Correlation' width=500> 
-</div>    
+</div> 
 
 ## How have sales performed over the last 6 weeks? 
 
-The graph below shows the cummulative revenue generated by each of the sales methods, indicating that 'email' has provided the highest revenue across all three. However, after the first 3 weeks, we can see a noticeable increase in revenue generated by the 'email + call' campaign. The worst performing method was 'call', which has the lowest revenue across all three categories. 
+The graph below shows the cumulative revenue generated by each of the sales methods, indicating that 'email' has provided the highest revenue across all three. However, after the first 3 weeks, we can see a noticeable increase in revenue generated by the 'email + call' campaign. The worst performing method was 'call', which has the lowest revenue across all three categories. 
 
 <div align='center'> 
     <img src= 'Sales_Strategy/reports/figures/cumulative_revenue_by_sales_method.png' width=600> 
 </div>    
 
-While these numbers may appear to indicate that 'email' is the best sales method when it comes to revenue, it's important to note that the dataset contains a vastly different number of transactions for each sales category. There are a total of 4,768 tansactions for 'call', 6,834 for 'email' and 2572 for 'email + call'. While it is expected that the 'email' method has the highest cummulative revenue, it can be explained by the considerably higher number of transactions, and not necessarely suggest that it is the most profitable.
+While these numbers may appear to indicate that 'email' is the best sales method when it comes to revenue, it's important to note that the dataset contains a vastly different number of transactions for each sales category. There are a total of 4,768 transactions for 'call', 6,834 for 'email' and 2572 for 'email + call'. While it is expected that the 'email' method has the highest cummulative revenue, it can be explained by the considerably higher number of transactions, and not necessarily suggest that it is the most profitable.
 
 The boxplot below shows the distribution of revenue per sales method, indicating that, while there is a higher variability of revenue for the 'email + call' method, average values indicate that it holds higher returns per transactions, on average. 
 
@@ -159,7 +230,7 @@ We will use Kruskal-Wallis tests to compare the sales methods across the groups 
 | sales_method    | 2         | 11957.12        | 0.0       |
 
 
-The Kruskal-Wallis test yielded an H-statistic of 11957.12, which indicates significant differences between the sales methods, and a p-value of 0.0, which is less than the 0.05 threshold, allowing us to reject the null hypothesis. Therefore, we conclude that there is a significant difference in the distributions of revenue across the sales methods (call, email, email + call). 
+The Kruskal-Wallis test revealed significant differences in revenue distributions across the three sales methods, with an H-statistic of 11,957.12 and a p-value of 0.0, well below the 0.05 threshold. This allows us to confidently reject the null hypothesis, confirming that the choice of sales method impacts revenue. These results suggest that businesses must prioritize sales methods based on their revenue goals. For instance, methods like email + call, which showed higher average revenue per transaction, may be suited for high-value customers, while methods like email, with higher scalability, are better for maximizing total revenue.
 
 #### Post-hoc pairwise comparisons 
 
@@ -189,26 +260,17 @@ Since the test above have shown that there are statistically significant differe
 
 The table below shows the average revenue generated per transaction for each of the sales methods: 
 
-| sales_method   | total_revenue | total_transactions | avg_revenue | avg_nb_sold |
-|----------------|---------------|--------------------|-------------|-------------|
-| call           | 226668.99     | 4768               | 47.54       | 9.49        |
-| email          | 660475.80     | 6834               | 96.65       | 9.68        |
-| email + call   | 473828.41     | 2572               | 184.23      | 12.23       |
+| **Sales Method** | **Total Revenue ($)** | **Total Transactions** | **Avg Revenue ($)** | **Avg Items Sold** | **Est. Cost/Transaction ($)** | **Avg Profit Margin (%)** |
+|-------------------|-----------------------|-------------------------|---------------------|--------------------|------------------------------|---------------------------|
+| Call             | 226,668.99           | 4,768                  | 47.54              | 9.49               | 5.00                         | 18%                       |
+| Email            | 660,475.80           | 6,834                  | 96.65              | 9.68               | 2.00                         | 36%                       |
+| Email + Call     | 473,828.41           | 2,572                  | 184.23             | 12.23              | 10.00                        | 42%                       |
 
-From this table, we can observe the following results: 
+Introducing estimated costs per transaction and average profit margins provides a clearer understanding of the efficiency of each sales method. These cost estimates are based on reasonable assumptions about resource intensity: call transactions are estimated at $5.00 each due to manual labor requirements, email at $2.00 reflecting automation and scalability, and email + call at $10.00 given its combined resource demands.
 
-- Total Revenue: 
-  - **Email** generated the highest total revenue ($660,475.80), followed by **email + call** ($473,828.41), and **call** ($226,668.99).
-  
-- Total Transactions: 
-  - **Email** also led in terms of total transactions, with 6,834 transactions, far surpassing **call** (4,768 transactions) and **email + call** (2,572 transactions).
+Using these estimates, email emerges as the most cost-effective method, with a strong profit margin (36%) and the lowest cost per transaction. Meanwhile, email + call achieves the highest average profit margin (42%) despite higher costs, suggesting its suitability for high-value opportunities. In contrast, call transactions are less efficient, with a relatively high cost and a low profit margin (18%).
 
-- Average Revenue per Transaction: 
-  - **Email + Call** had the highest average revenue per transaction ($184.23), indicating it generates more revenue per sale compared to the other methods. 
-  - **Email** had an average revenue per transaction of $96.65, while **call** generated $47.54 per transaction.
-
-- Average Number of Items Sold:
-  - **Email + Call** led in average number of items sold per transaction (12.23), followed by **email** (9.68) and **call** (9.49).
+These findings underscore the potential for optimizing email for scalability and selectively deploying email + call to maximize profitability.
 
 ## Which Method is Better?
 
@@ -248,26 +310,36 @@ These initial values can serve as benchmarks for monitoring weekly performance.
 
 ## Final Summary and Recommendations
 
-### Key Findings:
-1. **Email is the most scalable method**: With the highest transaction volume (6,834) and the highest total revenue ($660,475.80), it is the most effective strategy for maximizing overall revenue.
-2. **Email + Call is the most efficient per transaction**: It generates the highest average revenue per transaction ($184.23), but the lower transaction volume (2,572) limits its scalability.
-3. **Call is the least favorable method**: It has the lowest total revenue ($226,668.99) and average revenue per transaction ($47.54), making it the least efficient.
+### Key Findings Summary
+
+1. **Email is the Most Scalable**: It generates the highest total revenue ($660,475.80) and transactions (6,834), making it the most effective strategy for maximizing overall revenue.
+2. **Email + Call is the Most Efficient**: With the highest average revenue per transaction ($184.23) and average profit margin (42%), it is the most effective method for high-value opportunities, albeit less scalable due to lower transaction volume (2,572).
+3. **Call is the Least Favorable**: It generates the lowest total revenue ($226,668.99), has the lowest profit margin (18%), and is the least efficient method.
+4. **Significant Differences in Sales Methods**: Statistical tests (Kruskal-Wallis and pairwise comparisons) confirm that revenue distributions differ significantly across sales methods. These findings reinforce the need for strategic prioritization.
+5. **Top Performing States**: California, Texas, and New York together account for 27% of total revenue, representing high-priority regions for growth and investment.
+6. **Revenue Over Time**: Average revenue per transaction has increased over the six-week period for all sales methods. However, transaction volume for `email` and `call` has declined, while `email + call` has grown.
+7. **Minimal Customer Group Differences**: Revenue differences across tenure groups (New, Growing, Established, Loyal) are negligible, even when broken down by sales method.
 
 ### Recommendations:
 1. **Prioritize the Email Sales Method**:
-   - Focus on scaling this method further as it produces the highest revenue and transaction volume.
-   - Address the sharp decline in email transactions over time (from 2,626 in week 1 to 99 in week 6) by investigating customer engagement and campaign longevity.
+   - Focus on scaling this method further as it produces the highest revenue and transaction volume. To sustain and enhance the performance of email campaigns, the business should consider the following strategies:
+       - **Customer Segmentation**: Personalize campaigns based on customer behavior or preferences, such as tailoring offers to high-value customers or targeting dormant users with reactivation incentives.
+       - **Retention Strategies**: Investigate the decline in email transactions over time by analyzing customer engagement patterns. Implement tactics like loyalty programs, limited-time offers, or re-engagement campaigns to maintain interest and activity.
 
 2. **Optimize the Email + Call Method**:
    - Retain this method for high-value customers or premium products where maximizing revenue per transaction is critical.
    - Investigate ways to streamline the process to reduce resource demands and increase transaction volume without sacrificing efficiency.
 
-3. **Phase Out the Call Method**:
-   - With the lowest efficiency and scalability, this method offers limited strategic value.
-   - Transition resources allocated to this method toward improving email and email + call strategies.
+3.	**Limit the Use of the Call Method**:
+    - Given its low efficiency and scalability, this method should be reserved for scenarios where other strategies, such as email or email + call, are not viable options.
+    - Reallocate resources toward enhancing the more effective email and email + call strategies.
 
 4. **Monitor Performance Using Revenue Metrics**:
    - Track weekly revenue and transaction volume for each method.
    - Reassess periodically to ensure the chosen strategies continue to align with business objectives.
 
-By implementing these recommendations, the business can focus resources on methods that maximize revenue and efficiency, ensuring sustained growth and profitability.
+# Future Directions: Embracing an Omnichannel Approach: 
+
+While this analysis highlights the distinct advantages and limitations of the current sales methods (Call, Email, and Email + Call), the best course of action lies in adopting an omnichannel approach. By leveraging the strengths of each method and aligning them with specific customer needs or scenarios, the business can maximize both scalability and efficiency. For example, Email campaigns can drive broad engagement, Email + Call can focus on high-value opportunities, and Call can remain a targeted solution where other channels are unavailable.
+
+In addition, it is crucial to expand the scope of this study by exploring other sales methods and their impacts on revenue. Future research could evaluate emerging channels such as SMS marketing, social media outreach, or live chat support to identify new opportunities for growth. By continuously analyzing the performance of both existing and new methods, the business can remain agile, optimize its sales strategy, and adapt to evolving market and customer dynamics.
