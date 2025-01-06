@@ -338,7 +338,7 @@ These initial values can serve as benchmarks for monitoring weekly performance.
    - Track weekly revenue and transaction volume for each method.
    - Reassess periodically to ensure the chosen strategies continue to align with business objectives.
 
-# Future Directions: Embracing an Omnichannel Approach: 
+# Future Directions - Embracing an Omnichannel Approach: 
 
 While this analysis highlights the distinct advantages and limitations of the current sales methods (Call, Email, and Email + Call), the best course of action lies in adopting an omnichannel approach. By leveraging the strengths of each method and aligning them with specific customer needs or scenarios, the business can maximize both scalability and efficiency. For example, Email campaigns can drive broad engagement, Email + Call can focus on high-value opportunities, and Call can remain a targeted solution where other channels are unavailable.
 
